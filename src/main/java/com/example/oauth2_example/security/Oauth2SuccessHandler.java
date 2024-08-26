@@ -1,8 +1,10 @@
-package com.example.oauth2_example.security.oauth;
+package com.example.oauth2_example.security;
 
 
-import com.example.oauth2_example.security.CustomUserDetails;
 import com.example.oauth2_example.security.jwt.JwtUtil;
+import com.example.oauth2_example.security.oauth.Oauth2PlatformStrategyFactory;
+import com.example.oauth2_example.security.oauth.OauthUserInfo;
+import com.example.oauth2_example.security.oauth.OauthUserInfoPersist;
 import com.example.oauth2_example.security.oauth.strategy.Oauth2PlatformStrategy;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

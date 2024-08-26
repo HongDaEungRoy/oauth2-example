@@ -1,7 +1,7 @@
-package com.example.oauth2_example.security.jwt;
+package com.example.oauth2_example.security;
 
 
-import com.example.oauth2_example.security.CustomUserDetails;
+import com.example.oauth2_example.security.jwt.JwtUtil;
 import jakarta.annotation.Nonnull;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -20,7 +20,6 @@ import java.io.IOException;
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtUtil jwtUtil;
-
 
     @Override
     protected void doFilterInternal(

@@ -1,8 +1,6 @@
 package com.example.oauth2_example.security;
 
 
-import com.example.oauth2_example.security.jwt.JwtAuthenticationFilter;
-import com.example.oauth2_example.security.oauth.Oauth2SuccessHandler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
