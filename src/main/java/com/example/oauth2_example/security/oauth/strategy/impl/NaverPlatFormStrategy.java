@@ -1,7 +1,7 @@
 package com.example.oauth2_example.security.oauth.strategy.impl;
 
 import com.example.oauth2_example.security.oauth.strategy.Oauth2PlatformStrategy;
-import com.example.oauth2_example.security.oauth.strategy.OauthUserInfo;
+import com.example.oauth2_example.security.oauth.OauthUserInfo;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Component;
 
@@ -33,5 +33,4 @@ public class NaverPlatFormStrategy implements Oauth2PlatformStrategy {
                 .map(attr -> (String) attr.get(key))
                 .orElse("");
     }
-
 }

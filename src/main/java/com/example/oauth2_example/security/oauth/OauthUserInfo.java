@@ -1,4 +1,4 @@
-package com.example.oauth2_example.security.oauth.strategy;
+package com.example.oauth2_example.security.oauth;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

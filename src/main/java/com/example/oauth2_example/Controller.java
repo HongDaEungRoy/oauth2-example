@@ -17,7 +17,7 @@ public class Controller {
 
      @GetMapping("/")
     public String home() {
-        return "Welcome to the OAuth2 example. <a href='/oauth2/authorization/google'>Login with Google</a>";
+        return "<a href='/login'>Login</a>";
     }
 
     @GetMapping("/login/google")
