@@ -29,11 +29,5 @@ public class KakaoPlatformStrategy implements Oauth2PlatformStrategy {
 
         return new OauthUserInfo(name, nickname, profileImageUrl);
     }
-
-    private String getStringAttribute(Map<String, Object> attributes, String key) {
-        return Optional.ofNullable(attributes)
-                .map(attr -> (String) attr.get(key))
-                .orElse("");
-    }
 }
 

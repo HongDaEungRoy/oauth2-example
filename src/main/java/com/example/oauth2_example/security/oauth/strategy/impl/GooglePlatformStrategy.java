@@ -16,8 +16,8 @@ public class GooglePlatformStrategy implements Oauth2PlatformStrategy {
 
     @Override
     public OauthUserInfo extractUserInfo(OAuth2User oauth2User) {
-        String name = oauth2User.getAttribute("name");
-        String username = oauth2User.getAttribute("email");
+        String name = getStringAttribute(oauth2User.getAttributes(), "name");
+        String username = getStringAttribute(oauth2User.getAttributes(), "email");
         String userProfileImage = oauth2User.getAttribute("profile");
         return new OauthUserInfo(name, username, userProfileImage);
     }

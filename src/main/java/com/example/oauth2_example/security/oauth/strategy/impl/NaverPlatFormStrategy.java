@@ -1,12 +1,11 @@
 package com.example.oauth2_example.security.oauth.strategy.impl;
 
-import com.example.oauth2_example.security.oauth.strategy.Oauth2PlatformStrategy;
 import com.example.oauth2_example.security.oauth.OauthUserInfo;
+import com.example.oauth2_example.security.oauth.strategy.Oauth2PlatformStrategy;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
-import java.util.Optional;
 
 @Component
 public class NaverPlatFormStrategy implements Oauth2PlatformStrategy {
@@ -26,11 +25,5 @@ public class NaverPlatFormStrategy implements Oauth2PlatformStrategy {
         String name = getStringAttribute(profile, "name");
 
         return new OauthUserInfo(name, nickname, profileImageUrl);
-    }
-
-    private String getStringAttribute(Map<String, Object> attributes, String key) {
-        return Optional.ofNullable(attributes)
-                .map(attr -> (String) attr.get(key))
-                .orElse("");
     }
 }
