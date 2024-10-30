@@ -1,6 +1,6 @@
-package com.example.oauth2_example.security.jwt;
+package com.example.oauth2_example.infra.jwt;
 
-import com.example.oauth2_example.security.CustomUserDetails;
+import com.example.oauth2_example.infra.security.CustomUserDetails;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

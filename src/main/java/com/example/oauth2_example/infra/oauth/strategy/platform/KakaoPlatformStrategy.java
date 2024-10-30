@@ -1,7 +1,7 @@
-package com.example.oauth2_example.security.oauth.strategy.impl;
+package com.example.oauth2_example.infra.oauth.strategy.platform;
 
-import com.example.oauth2_example.security.oauth.OauthUserInfo;
-import com.example.oauth2_example.security.oauth.strategy.Oauth2PlatformStrategy;
+import com.example.oauth2_example.service.OauthUserInfoDto;
+import com.example.oauth2_example.infra.oauth.strategy.Oauth2PlatformStrategy;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +16,7 @@ public class KakaoPlatformStrategy implements Oauth2PlatformStrategy {
     }
 
     @Override
-    public OauthUserInfo extractUserInfo(OAuth2User oauth2User) {
+    public OauthUserInfoDto extractUserInfo(OAuth2User oauth2User) {
         Map<String, Object> kakaoAccount = (Map<String, Object>) oauth2User.getAttributes().get("kakao_account");
         Map<String, Object> profile = (Map<String, Object>) kakaoAccount.get("profile");
 
@@ -26,7 +26,7 @@ public class KakaoPlatformStrategy implements Oauth2PlatformStrategy {
         // name은 현재 사용할 수 없으므로 빈 문자열로 설정
         String name = "";
 
-        return new OauthUserInfo(name, nickname, profileImageUrl);
+        return new OauthUserInfoDto(name, nickname, profileImageUrl);
     }
 }
 

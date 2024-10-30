@@ -1,7 +1,7 @@
-package com.example.oauth2_example.security;
+package com.example.oauth2_example.infra.security;
 
 
-import com.example.oauth2_example.security.jwt.JwtUtil;
+import com.example.oauth2_example.infra.jwt.JwtUtil;
 import jakarta.annotation.Nonnull;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

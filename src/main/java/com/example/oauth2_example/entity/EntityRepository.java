@@ -1,4 +1,4 @@
-package com.example.oauth2_example;
+package com.example.oauth2_example.entity;
 
 import lombok.Getter;
 import org.springframework.stereotype.Repository;

@@ -1,7 +1,7 @@
-package com.example.oauth2_example;
+package com.example.oauth2_example.controller;
 
 
-import com.example.oauth2_example.security.CustomUserDetails;
+import com.example.oauth2_example.infra.security.CustomUserDetails;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

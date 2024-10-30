@@ -1,6 +1,6 @@
-package com.example.oauth2_example.security.oauth;
+package com.example.oauth2_example.infra.oauth;
 
-import com.example.oauth2_example.security.oauth.strategy.Oauth2PlatformStrategy;
+import com.example.oauth2_example.infra.oauth.strategy.Oauth2PlatformStrategy;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

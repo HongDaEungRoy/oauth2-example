@@ -1,19 +1,18 @@
-package com.example.oauth2_example;
+package com.example.oauth2_example.service;
 
-import com.example.oauth2_example.security.oauth.OauthUserInfo;
-import com.example.oauth2_example.security.oauth.OauthUserInfoPersist;
+import com.example.oauth2_example.entity.EntityRepository;
+import com.example.oauth2_example.entity.UserEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 
 @Service
 @RequiredArgsConstructor
-public class Oauth2UserService implements OauthUserInfoPersist {
+public class Oauth2UserService {
 
     private final EntityRepository entityRepository;
 
-    @Override
-    public void persistUserInfo(OauthUserInfo userInfo) {
+    public void persistUserInfo(OauthUserInfoDto userInfo) {
         UserEntity userEntity = entityRepository.findByUsername(userInfo.getUsername())
                 .orElse(new UserEntity(userInfo.getUsername(), userInfo.getName(), userInfo.getUserProfileImage()));
         entityRepository.save(userEntity);

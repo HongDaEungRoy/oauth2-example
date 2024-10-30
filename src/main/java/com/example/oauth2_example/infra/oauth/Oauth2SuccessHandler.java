@@ -1,11 +1,11 @@
-package com.example.oauth2_example.security;
+package com.example.oauth2_example.infra.oauth;
 
 
-import com.example.oauth2_example.security.jwt.JwtUtil;
-import com.example.oauth2_example.security.oauth.Oauth2PlatformStrategyFactory;
-import com.example.oauth2_example.security.oauth.OauthUserInfo;
-import com.example.oauth2_example.security.oauth.OauthUserInfoPersist;
-import com.example.oauth2_example.security.oauth.strategy.Oauth2PlatformStrategy;
+import com.example.oauth2_example.infra.security.CustomUserDetails;
+import com.example.oauth2_example.infra.jwt.JwtUtil;
+import com.example.oauth2_example.service.OauthUserInfoDto;
+import com.example.oauth2_example.infra.oauth.strategy.Oauth2PlatformStrategy;
+import com.example.oauth2_example.service.Oauth2UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +23,7 @@ import java.io.IOException;
 public class Oauth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 
     private final JwtUtil jwtUtil;
-    private final OauthUserInfoPersist oauthUserInfoPersist;
+    private final Oauth2UserService oauth2UserService;
     private final Oauth2PlatformStrategyFactory oauth2PlatformStrategyFactory;
 
     @Override
@@ -32,9 +32,9 @@ public class Oauth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
         OAuth2User oAuth2User = (OAuth2User) authentication.getPrincipal();
         String platForm = ((OAuth2AuthenticationToken) SecurityContextHolder.getContext().getAuthentication()).getAuthorizedClientRegistrationId();
         Oauth2PlatformStrategy platformStrategy = oauth2PlatformStrategyFactory.getOauth2PlatformStrategy(platForm);
-        OauthUserInfo userInfo = platformStrategy.extractUserInfo(oAuth2User);
+        OauthUserInfoDto userInfo = platformStrategy.extractUserInfo(oAuth2User);
 
-        oauthUserInfoPersist.persistUserInfo(userInfo);
+        oauth2UserService.persistUserInfo(userInfo);
 
         String token = jwtUtil.generateToken(new CustomUserDetails(userInfo.getUsername(), userInfo.getName(), userInfo.getUserProfileImage()));
         // 원래는 프론트에서 redirect 하도록 함.

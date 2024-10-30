@@ -1,6 +1,7 @@
-package com.example.oauth2_example.security;
+package com.example.oauth2_example.infra.security;
 
 
+import com.example.oauth2_example.infra.oauth.Oauth2SuccessHandler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
